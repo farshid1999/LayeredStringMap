@@ -89,6 +89,4 @@ print(lsm.is_exist("banana"))  # Output: False
 print(lsm.filter_search(lambda x: 'a' in x))
 ```
 
-## License
-This project is open-source and available under the MIT License.
 
