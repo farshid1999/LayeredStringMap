@@ -141,17 +141,3 @@ class LayeredStringMap:
         traverse(self.head)
         return result
 
-
-# Example Usage
-lsm = LayeredStringMap()
-lsm.append("apple")
-lsm.append("app")
-lsm.append("banana")
-lsm.append("apricot")
-lsm.append("grape")
-
-print("All stored values:", lsm)
-print("Find index of 'apple':", lsm.find_index("apple"))
-print("Does 'banana' exist?:", lsm.is_exist("banana"))
-print("Prefix search for 'ap':", lsm.prefix_search("ap"))
-print("Filter search for words containing 'a':", lsm.filter_search(lambda x: 'a' in x))
