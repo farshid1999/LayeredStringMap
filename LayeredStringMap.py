@@ -3,17 +3,6 @@ class LayeredStringMap:
         # Initialize an empty dictionary to store the trie structure
         self.head = {}
 
-    def find_index(self, x):
-        """ Returns the ASCII index representation of the given string x. """
-        current = self.head
-        index = []
-        for c in x:
-            if c not in current:
-                return None
-            current = current[c]
-            index.append(ord(c))
-        return ','.join(map(str, index))
-
     def hook(self, *args):
         """ Retrieves the value stored at the given key path. """
         current = self.head
