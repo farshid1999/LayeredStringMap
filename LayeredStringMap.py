@@ -3,15 +3,6 @@ class LayeredStringMap:
         # Initialize an empty dictionary to store the trie structure
         self.head = {}
 
-    def hook(self, *args):
-        """ Retrieves the value stored at the given key path. """
-        current = self.head
-        for i in args:
-            if i not in current:
-                return None
-            current = current[i]
-        return str(current.get("value", None))
-
     def is_exist(self, x):
         """ Checks if a given string exists in the trie. """
         current = self.head
@@ -45,29 +36,6 @@ class LayeredStringMap:
             return False  # The string is not registered as a value
 
         del current["value"]  # Delete the value
-
-        while stack:
-            parent, char = stack.pop()
-            if not parent[char]:
-                del parent[char]
-            else:
-                break
-
-        return True
-
-    def delete(self, *args):
-        """ Deletes a nested key path from the trie. """
-        current = self.head
-        stack = []
-
-        for i in args:
-            if i not in current:
-                return False
-            stack.append((current, i))
-            current = current[i]
-
-        if "value" in current:
-            del current["value"]
 
         while stack:
             parent, char = stack.pop()
